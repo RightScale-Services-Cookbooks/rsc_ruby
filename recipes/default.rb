@@ -9,7 +9,7 @@ log "installing Ruby #{node[:rsc_ruby][:ruby][:version]} to #{node[:rsc_ruby][:r
 ruby_build_ruby node[:rsc_ruby][:ruby][:version] do
   prefix_path node[:rsc_ruby][:ruby][:prefix_path]
 end
-ENV["PATH"]="#{ENV["PATH"]}:#{node[:rsc_ruby][:ruby][:prefix_path]}/bin"
+ENV["PATH"]="#{node[:rsc_ruby][:ruby][:prefix_path]}/bin:#{ENV["PATH"]}"
 
 log "install rubygems"
 execute "#{node[:rsc_ruby][:ruby][:prefix_path]}/bin/gem update --system"
