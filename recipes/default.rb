@@ -25,10 +25,10 @@ gems= ["bundler","rake"]
 gems.each do |gem|
   gem_package gem do
     gem_binary "#{node[:rsc_ruby][:ruby][:prefix_path]}/bin/gem"
+    options(:force => true)
   end
 end
 
 ohai "reload" do
   action :reload
 end
-
